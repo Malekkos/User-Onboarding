@@ -5,9 +5,16 @@ import Form from "./Components/Form"
 
 
 function App() {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    TermsOfService: false
+  })
   return (
     <div className="App">
-      <Form />
+      <Form form={form} />
     </div>
   );
 }
