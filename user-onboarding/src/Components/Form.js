@@ -1,18 +1,11 @@
-import axios from "axios"
+
 import React from "react"
 
 const Form = (props) => {
-  // const [form, setForm] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   password: "",
-  //   TermsOfService: false
-  // })
 
   return (
     <div>
-      <form className="form">
+      <form className="form" onSubmit={props.submit} >
         <label>First Name
           <input onChange={props.change} value={props.form.firstName} name="firstName" type="text" />
         </label>
@@ -29,7 +22,7 @@ const Form = (props) => {
           <input onChange={props.change} checked={props.form.TermsOfService} name="TermsOfService" type="checkbox" />
         </label>
         <label>
-          <input type="submit" className="button" value="submit" />
+          <input type="submit" className="button" value="submit" disabled={props.disabled} />
         </label>
       </form>
     </div>
