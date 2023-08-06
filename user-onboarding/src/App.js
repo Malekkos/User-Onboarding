@@ -12,9 +12,16 @@ function App() {
     password: "",
     TermsOfService: false
   })
+
+  const change = event => {
+    const { checked, value, name, type } = event.target;
+    const valueToUse = type === "checkbox" ? checked : value
+    setForm({ ...form, [name]: valueToUse})
+  }
+
   return (
     <div className="App">
-      <Form form={form} />
+      <Form form={form} change={change} />
     </div>
   );
 }
