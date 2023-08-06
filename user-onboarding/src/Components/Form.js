@@ -5,6 +5,12 @@ const Form = (props) => {
 
   return (
     <div>
+      <h1>Information Stealer</h1>
+      <p className="errorMSG">{props.errors.firstName}</p>
+      <p className="errorMSG">{props.errors.lastName}</p>
+      <p className="errorMSG">{props.errors.email}</p>
+      <p className="errorMSG">{props.errors.passowrd}</p>
+      <p className="errorMSG">{props.errors.TermsOfService}</p>
       <form className="form" onSubmit={props.submit} >
         <label>First Name
           <input onChange={props.change} value={props.form.firstName} name="firstName" type="text" />
