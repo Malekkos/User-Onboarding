@@ -22,7 +22,7 @@ function App() {
     TermsOfService: ""
   }
   const [disabled, setDisabled] = useState(true)
-  const [user, setUser] = useState({})
+  const [users, setUser] = useState([])
   const [formErrors, setFormErrors] = useState(initialFormErrors);
 
   
@@ -43,20 +43,31 @@ function App() {
     const newUser = { firstName: form.firstName.trim(), lastName: form.lastName.trim(), email: form.email, password: form.password, TermsOfService: form.TermsOfService }
     axios.post("https://reqres.in/api/users", newUser)
     .then(res => {
-      setForm({firstName: "", lastName: "", email: "", password: "", TermsOfService: false})
+      console.log(res);
+      console.log(newUser);
+      setUser([res.data, ...users])
+
     })
     .catch(err => {
       console.log(err);
     })
-    .finally(val => {
-      setUser(val)
+    .finally(() => {
+      
+      setForm({firstName: "", lastName: "", email: "", password: "", TermsOfService: false})
     })
     
   }
   return (
     <div className="App">
       <Form form={form} change={change} submit={submit} disabled={disabled} errors={formErrors} />
-      
+      {users.map(user => (
+        <div>
+          <h2>{user.firstName} {user.lastName}</h2>
+          <h3>{user.email}</h3>
+          <h3>{user.password}</h3>
+        </div>
+        
+      ))}
     </div>
   );
 }
