@@ -28,7 +28,7 @@ const Form = (props) => {
           <input onChange={props.change} checked={props.form.TermsOfService} name="TermsOfService" type="checkbox" />
         </label>
         <label>
-          <input type="submit" className="button" value="submit"  />
+          <input type="submit" className="button" value="submit" name="submitButton"  />
         </label>
       </form>
     </div>

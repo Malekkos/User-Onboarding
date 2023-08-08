@@ -32,6 +32,7 @@ function App() {
       .then(() => setFormErrors({ ...formErrors, [name]: ""}))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
   }
+  
   const change = event => {
     const { checked, value, name, type } = event.target;
     const valueToUse = type === "checkbox" ? checked : value
