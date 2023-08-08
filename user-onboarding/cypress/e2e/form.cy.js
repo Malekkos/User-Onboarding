@@ -17,6 +17,14 @@ describe("Form App", () => {
     expect(100).to.be.a("number")
   })
 
+  describe("inputs are interactable", () => {
+    it("Can enter stuff into the fields", () => {
+      firstNameInput().should("have.value", "").type("Miranda").should("have.value", "Miranda")
+      lastNameInput().should("have.value", "").type("Sitahra").should("have.value", "Sitahra")
+
+
+    })
+  })
 
 
 
